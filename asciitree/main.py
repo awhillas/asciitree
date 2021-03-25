@@ -26,11 +26,20 @@ class Canvas:
         self.height = 1
         self.canvas = [[' ']]
 
-    def hline(self, char: str, start: Point, length: int):
+    def vline(self, top: Point, length: int, char: str='|'):
         """
-        Draw a vertical line right of a start point
+        Draw a vertical line from the point down.
 
-        >>> c = Canvas(); c.hline('-', Point(2, 0), 5); c.render()
+        >>> c = Canvas(); c.vline('|', Point(2, 0), 5); c.render()
+        ''
+        """
+
+
+    def hline(self, start: Point, length: int, char: str='-'):
+        """
+        Draw a horizontal line right of a start point
+
+        >>> c = Canvas(); c.hline(Point(2, 0), 5); c.render()
         '  -----\\n'
         """
         assert length > 0, f"Length should be positive, given: '{length}'"
@@ -69,6 +78,7 @@ class Canvas:
         """
         self._expand(p)
         self.canvas[self.height - p.y - 1][p.x] = char[0]
+
 
 def main(file):
     logger.debug("Reading file {}!", file)
