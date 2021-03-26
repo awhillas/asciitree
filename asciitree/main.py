@@ -26,21 +26,22 @@ class Canvas:
         self.height = 1
         self.canvas = [[' ']]
 
-    def vline(self, top: Point, length: int, char: str='|'):
+    def vline(self, bottom: Point, length: int, char: str='|'):
         """
-        Draw a vertical line from the point down.
+        Draw a vertical line from the point up.
 
-        >>> c = Canvas(); c.vline('|', Point(2, 0), 5); c.render()
-        ''
+        >>> c = Canvas(); c.vline(Point(2, 1), 3, '*'); c.render()
+        '  *\\n  *\\n  *\\n   \\n'
         """
-
+        for y in range(length):
+            self.put(char, Point(bottom.x, y + bottom.y))
 
     def hline(self, start: Point, length: int, char: str='-'):
         """
         Draw a horizontal line right of a start point
 
-        >>> c = Canvas(); c.hline(Point(2, 0), 5); c.render()
-        '  -----\\n'
+        >>> c = Canvas(); c.hline(Point(2, 0), 5, '*'); c.render()
+        '  *****\\n'
         """
         assert length > 0, f"Length should be positive, given: '{length}'"
 
