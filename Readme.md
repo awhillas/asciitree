@@ -1,6 +1,6 @@
 # asciitree
 
-Given a CoNLL formatted dependency parse the objective is to output an ASCII
+Given a CoNLL-U formatted dependency parse the objective is to output an ASCII
 representation like so:
 
          root
